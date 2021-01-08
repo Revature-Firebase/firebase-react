@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -72,6 +73,11 @@ export default function SignIn() {
       .then((user: any) => {
         console.log(user)
         console.log(firebase.auth().currentUser?.getIdToken(true))
+          firebase.auth().currentUser?.getIdToken(true).then((resp) => { axios.post("http://localhost:8080", {}, {
+            headers:
+              { auth: resp }
+            }).then((resp) => console.log(resp)).catch((e) => console.log(e))
+          })
       })
       .catch((error: any) => {
         var errorCode = error.code;
