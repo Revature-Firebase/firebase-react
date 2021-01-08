@@ -29,7 +29,7 @@ const config = {
   messagingSenderId: "68185354875",
   appId: "1:68185354875:web:e01f97050875f4b97228de",
   measurementId: "G-L9CB6SL6NL",
-  databaseURL: "https://fir-demo-1c557-default-rtdb.firebaseio.com/",
+  databaseURL: "",
 };
 
 if (!firebase.apps.length) {
