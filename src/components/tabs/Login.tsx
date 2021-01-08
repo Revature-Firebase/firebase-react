@@ -67,6 +67,7 @@ export default function SignIn() {
       .signInWithEmailAndPassword(auth.email, auth.password)
       .then((user: any) => {
         console.log(user)
+        console.log(firebase.auth().currentUser?.getIdToken(true))
       })
       .catch((error: any) => {
         var errorCode = error.code;
