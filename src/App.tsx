@@ -43,6 +43,15 @@ function App() {
       <ThemeProvider theme={theme}>
         <img src={logo} className="App-logo" alt="logo" />
         <MainTabPanel />
+        <FirebaseAuthConsumer>
+          {({ isSignedIn, user, providerId }) => {
+            return (
+              <pre style={{ height: 300, overflow: "auto" }}>
+                {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
+              </pre>
+            );
+          }}
+        </FirebaseAuthConsumer>
       </ThemeProvider>
     </FirebaseAuthProvider>
   );

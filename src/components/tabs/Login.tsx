@@ -60,6 +60,10 @@ export default function SignIn() {
     setAuth({...auth, [e.target.name]: e.target.value})
   }
 
+  const logout = () => {
+    firebase.auth().signOut();
+  }
+
   const onSubmit = (e: any) => {
     e.preventDefault();
     firebase
@@ -145,6 +149,7 @@ export default function SignIn() {
       <Box mt={8}>
         <Copyright />
       </Box>
+      <Button onClick={logout} >Logout</Button>
     </Container>
   );
 }
